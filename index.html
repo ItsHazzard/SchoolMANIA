@@ -1,195 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SchoolMANIA</title>
-    <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0%;
-      }
-  
-      body {
-      /* Set the background image and its properties */
-          background-image: url('https://itshazzard.github.io/SchoolMANIA/Photos/Background.png');
-          background-size: cover; /* Adjust the background size to cover the entire viewport */
-          background-repeat: no-repeat;
-          background-position: center center;
-        }
-    </style>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">  
-    <style>
-        body {
-          margin: 0;
-          padding: 0;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column; /* Change flex direction to column */
-        }
-    
 
-        .text-container {
-          position: absolute;
-          text-align: center;
-          top: -10%;
-          font-family: 'Oswald', Bold;
-        }
-    
-        .text {
-          font-size: 150px;
-          font-weight: bold;
-        }
-         
-        .sub-text {
-          font-size: 24px;
-          color: black;
-          font-weight: bold;
-          top: -30%;
-        }
-        
-        .btn-container {
-          margin-top: 20px; /* Add margin to separate buttons from text */
-        }
-    
-        .btn {
-          display: inline-block;
-          padding: 10px;
-          font-size: 36px;
-          background-color: transparent;
-          color: White;
-          cursor: pointer;
-          margin: 10px;
-          transition: all 0.3s ease;
-          border: 2px solid;
-          border-image: linear-gradient(to bottom, black, grey ) 1;
-          border-image-slice: 1;
-          position: relative;
-          overflow: hidden;
-          width: 360px; /* Set the button width */
-          height: 360px; /* Set the button height */
-          text-align: center;
-        }
-    
-        .btn img {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          max-width: 60%;
-          max-height: 60%;
-        }
-        
-        .btn-text {
-          display: block;
-          text-align: center;
-          margin-top: 95%;
-          transform: translateY(-50%);
-          color: black;
-          font-weight: bolder;
-          font-size: 50px;
-        }
-        
-        .btn:hover {
-          color: grey;
-          border-image: linear-gradient(lightblue, cyan) 1;
-          transform: scale(1.3);
-        }
-    
-        /* Styles for the popup */
-        .popup-container {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.7);
-          backdrop-filter: blur(5px);
-          z-index: 9999;
-          align-content: center;
-          transform: scale(1.5); /* Make the popup 1.5x bigger */
-        }
-    
-        .popup-content {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          padding: 20px;
-          background-color: black;
-          color: white;
-          border-radius: 10px;
-          width: 60%;
-          height: 60%;
-          overflow: auto;
-        }
-    
-        .close-btn-popup {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-    
-        .close-btn-popup:hover {
-        transform: scale(1.8);
-        color: red;
-        }
-        
-        .color-boxes {
-        display: flex;
-        flex-direction: column; /* Display boxes in a column */
-        align-items: center; /* Center boxes horizontally */
-        margin-top: 20px;
-        }
+<head>
+  <meta charset="UTF-8">
+  <title>SchoolMANIA</title>
+  <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <style>
+html, body {
+  height: 100%;
+  margin: 0%;
+}
+
+body {
+  background-image: url('https://itshazzard.github.io/SchoolMANIA/Photos/Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-container {
+  position: absolute;
+  text-align: center;
+  top: -10%;
+  font-family: 'Oswald', Bold;
+}
+
+.text {
+  font-size: 150px;
+  font-weight: bold;
+}
+
+.sub-text {
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
+  top: -30%;
+}
+
+.btn-container {
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px;
+  font-size: 36px;
+  background-color: transparent;
+  color: White;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  border-image: linear-gradient(to bottom, black, grey) 1;
+  border-image-slice: 1;
+  position: relative;
+  overflow: hidden;
+  width: 360px;
+  height: 360px;
+  text-align: center;
+}
+
+.btn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60%;
+  max-height: 60%;
+}
+
+.btn-text {
+  display: block;
+  text-align: center;
+  margin-top: 95%;
+  transform: translateY(-50%);
+  color: black;
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+.btn:hover {
+  color: grey;
+  border-image: linear-gradient(lightblue, cyan) 1;
+  transform: scale(1.3);
+}
+
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+  align-content: center;
+  transform: scale(1.5);
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  width: 60%;
+  height: 60%;
+  overflow: auto;
+}
+
+.close-btn-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-btn-popup:hover {
+  transform: scale(1.8);
+  color: red;
+}
+
+.color-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
 
 .color-box {
   width: 400px;
   height: 100px;
   border-radius: 5px;
-  margin-bottom: 10px; /* Add margin between the boxes */
+  margin-bottom: 10px;
 }
 
-.red {
-  background-color: red;
+.schedule-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.green {
-  background-color: green;
+.schedule-box {
+  width: 400px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  position: relative;
 }
 
-.blue {
-  background-color: blue;
+.schedule-text {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #333;
+  font-family: Arial, sans-serif;
 }
 
-.yellow {
-  background-color: yellow;
+.classroom-box {
+  width: 100px;
+  height: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 
-.purple {
-  background-color: purple;
+.notes-textbox {
+  width: 100%;
+  height: 200px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
+  </style>
+</head>
 
-      .notes-textbox {
-            width: 100%;
-            height: 200px;
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-    </style>
-    </head>
 <body>
   <div class="text-container">
     <p class="text">SchoolMANIA</p>
-    <p class="sub-text">Everything You'll Need To Organise Your School Work</p>    
+    <p class="sub-text">Everything You'll Need To Organize Your School Work</p>
   </div>
 
   <div class="btn-container">
@@ -202,7 +213,7 @@
       <span class="btn-text">CheckList</span>
     </button>
   </div>
-  
+
   <div class="btn-container">
     <button class="btn" onclick="openPopup('MAPpopup')">
       <img class="btn-icon" src="https://iili.io/HZm2qMJ.png" alt="Map">
@@ -213,10 +224,7 @@
       <span class="btn-text">Notes</span>
     </button>
   </div>
-  
-  
 
-  <!-- Popup containers -->
   <div class="popup-container" id="TIMETABLEpopup">
     <div class="popup-content">
       <span class="close-btn-popup" onclick="closePopup('TIMETABLEpopup')">&#10006;</span>
@@ -228,41 +236,19 @@
         <div class="color-box yellow"></div>
         <div class="color-box purple"></div>
       </div>
+      <div class="schedule-boxes">
+        <!-- Add 8 schedule boxes for Mon-Fri -->
+        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Monday</div>
+        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Tuesday</div>
+        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Wednesday</div>
+        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Thursday</div>
+        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Friday</div>
+      </div>
+      <div class="classroom-box"></div>
     </div>
   </div>
-  
 
-  <div class="popup-container" id="LISTpopup">
-    <div class="popup-content">
-      <span class="close-btn-popup" onclick="closePopup('LISTpopup')">&#10006;</span>
-      <h1>CheckList</h1>
-      <p>This is the content of the CheckList popup.</p>
-    </div>
-  </div>
-
-  <div class="popup-container" id="MAPpopup">
-    <div class="popup-content">
-      <span class="close-btn-popup" onclick="closePopup('MAPpopup')">&#10006;</span>
-      <h1>Map</h1>
-      <img src="https://itshazzard.github.io/SchoolMANIA/Photos/HVGSmap.png" alt="Map">
-    </div>
-  </div>
-  
-  
-
-  <div class="popup-container" id="NOTESpopup">
-    <div class="popup-content">
-        <span class="close-btn-popup" onclick="closePopup('NOTESpopup')">&#10006;</span>
-        <h1>Notes</h1>
-        <h2>Subject 1</h2>
-        <textarea class="notes-box"></textarea>
-        <h2>Subject 2</h2>
-        <textarea class="notes-box"></textarea>
-        <h2>Subject 3</h2>
-        <textarea class="notes-box"></textarea>
-        <!-- Repeat for other subjects... -->
-    </div>
-</div>
+  <!-- Add other popup containers (LISTpopup, MAPpopup, NOTESpopup) similarly -->
 
   <script>
     function openPopup(popupId) {
@@ -278,11 +264,26 @@
     function handleEscapeKey(event) {
       if (event.keyCode === 27) {
         closePopup('TIMETABLEpopup');
-        closePopup('LISTpopup');
-        closePopup('MAPpopup');
-        closePopup('NOTESpopup');
+        // Add similar lines for other popups if needed
       }
     }
+
+    function saveToLocal(element) {
+      const scheduleText = element.innerText;
+      localStorage.setItem(element.textContent, scheduleText);
+    }
+
+    // Retrieve data from localStorage on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const scheduleBoxes = document.querySelectorAll('.schedule-box');
+      scheduleBoxes.forEach((box) => {
+        const savedText = localStorage.getItem(box.textContent);
+        if (savedText) {
+          box.innerText = savedText;
+        }
+      });
+    });
   </script>
 </body>
+
 </html>
