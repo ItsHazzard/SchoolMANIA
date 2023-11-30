@@ -2,205 +2,23 @@
 <html lang="en">
 
 <head>
+  <meta<!DOCTYPE html>
+<html lang="en">
+
+<head>
   <meta charset="UTF-8">
   <title>SchoolMANIA</title>
   <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <style>
-html, body {
-  height: 100%;
-  margin: 0%;
-}
-
-body {
-  background-image: url('https://itshazzard.github.io/SchoolMANIA/Photos/Background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.text-container {
-  position: absolute;
-  text-align: center;
-  top: -10%;
-  font-family: 'Oswald', Bold;
-}
-
-.text {
-  font-size: 150px;
-  font-weight: bold;
-}
-
-.sub-text {
-  font-size: 24px;
-  color: black;
-  font-weight: bold;
-  top: -30%;
-}
-
-.btn-container {
-  margin-top: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px;
-  font-size: 36px;
-  background-color: transparent;
-  color: White;
-  cursor: pointer;
-  margin: 10px;
-  transition: all 0.3s ease;
-  border: 2px solid;
-  border-image: linear-gradient(to bottom, black, grey) 1;
-  border-image-slice: 1;
-  position: relative;
-  overflow: hidden;
-  width: 360px;
-  height: 360px;
-  text-align: center;
-}
-
-.btn img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 60%;
-  max-height: 60%;
-}
-
-.btn-text {
-  display: block;
-  text-align: center;
-  margin-top: 95%;
-  transform: translateY(-50%);
-  color: black;
-  font-weight: bolder;
-  font-size: 50px;
-}
-
-.btn:hover {
-  color: grey;
-  border-image: linear-gradient(lightblue, cyan) 1;
-  transform: scale(1.3);
-}
-
-.popup-container {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  z-index: 9999;
-  align-content: center;
-  transform: scale(1.5);
-}
-
-.popup-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  background-color: black;
-  color: white;
-  border-radius: 10px;
-  width: 60%;
-  height: 60%;
-  overflow: auto;
-}
-
-.close-btn-popup {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.close-btn-popup:hover {
-  transform: scale(1.8);
-  color: red;
-}
-
-.color-boxes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.color-box {
-  width: 400px;
-  height: 100px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.schedule-boxes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.schedule-box {
-  width: 400px;
-  height: 100px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  position: relative;
-}
-
-.schedule-text {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: #333;
-  font-family: Arial, sans-serif;
-}
-
-.classroom-box {
-  width: 100px;
-  height: 200px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-left: 20px;
-}
-
-.notes-textbox {
-  width: 100%;
-  height: 200px;
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    /* Your existing styles */
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="text-container">
     <p class="text">SchoolMANIA</p>
-    <p class="sub-text">Everything You'll Need To Organize Your School Work</p>
+    <p class="sub-text">Everything You'll Need To Organise Your School Work</p>
   </div>
 
   <div class="btn-container">
@@ -225,32 +43,64 @@ body {
     </button>
   </div>
 
+  <!-- Popup containers -->
   <div class="popup-container" id="TIMETABLEpopup">
     <div class="popup-content">
       <span class="close-btn-popup" onclick="closePopup('TIMETABLEpopup')">&#10006;</span>
       <h1>TimeTable</h1>
-      <div class="color-boxes">
-        <div class="color-box red"></div>
-        <div class="color-box green"></div>
-        <div class="color-box blue"></div>
-        <div class="color-box yellow"></div>
-        <div class="color-box purple"></div>
+      <!-- Buttons for Monday-Friday -->
+      <div class="btn-container">
+        <button class="btn" onclick="openSubPopup('Monday')">Monday</button>
+        <button class="btn" onclick="openSubPopup('Tuesday')">Tuesday</button>
+        <button class="btn" onclick="openSubPopup('Wednesday')">Wednesday</button>
+        <button class="btn" onclick="openSubPopup('Thursday')">Thursday</button>
+        <button class="btn" onclick="openSubPopup('Friday')">Friday</button>
       </div>
-      <div class="schedule-boxes">
-        <!-- Add 8 schedule boxes for Mon-Fri -->
-        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Monday</div>
-        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Tuesday</div>
-        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Wednesday</div>
-        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Thursday</div>
-        <div class="schedule-box" contenteditable="true" oninput="saveToLocal(this)">Friday</div>
-      </div>
-      <div class="classroom-box"></div>
     </div>
   </div>
 
-  <!-- Add other popup containers (LISTpopup, MAPpopup, NOTESpopup) similarly -->
+  <!-- Sub Popup containers -->
+  <div class="popup-container" id="subPopup">
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('subPopup')">&#10006;</span>
+      <h1 id="subPopupTitle">Day</h1>
+      <div class="color-boxes">
+        <div class="color-box red" onclick="openEditableText('Subject1')">Subject 1</div>
+        <div class="color-box green" onclick="openEditableText('Subject2')">Subject 2</div>
+        <div class="color-box blue" onclick="openEditableText('Subject3')">Subject 3</div>
+        <!-- Add more subjects as needed -->
+      </div>
+      <textarea class="notes-textbox" id="editableText"></textarea>
+    </div>
+  </div>
+
+  <!-- Your existing popups -->
 
   <script>
+    const editableText = document.getElementById('editableText');
+
+    if (localStorage.getItem('savedText')) {
+      editableText.value = localStorage.getItem('savedText');
+    }
+
+    editableText.addEventListener('input', function () {
+      localStorage.setItem('savedText', this.value);
+    });
+
+    function openSubPopup(day) {
+      const subPopup = document.getElementById('subPopup');
+      const subPopupTitle = document.getElementById('subPopupTitle');
+      subPopupTitle.textContent = day;
+      subPopup.style.display = 'block';
+      document.addEventListener('keydown', handleEscapeKey);
+    }
+
+    function openEditableText(subject) {
+      const editableText = document.getElementById('editableText');
+      editableText.value = localStorage.getItem(subject) || '';
+      openSubPopup(subject);
+    }
+
     function openPopup(popupId) {
       document.getElementById(popupId).style.display = 'block';
       document.addEventListener('keydown', handleEscapeKey);
@@ -264,25 +114,11 @@ body {
     function handleEscapeKey(event) {
       if (event.keyCode === 27) {
         closePopup('TIMETABLEpopup');
-        // Add similar lines for other popups if needed
+        closePopup('LISTpopup');
+        closePopup('MAPpopup');
+        closePopup('NOTESpopup');
       }
     }
-
-    function saveToLocal(element) {
-      const scheduleText = element.innerText;
-      localStorage.setItem(element.textContent, scheduleText);
-    }
-
-    // Retrieve data from localStorage on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      const scheduleBoxes = document.querySelectorAll('.schedule-box');
-      scheduleBoxes.forEach((box) => {
-        const savedText = localStorage.getItem(box.textContent);
-        if (savedText) {
-          box.innerText = savedText;
-        }
-      });
-    });
   </script>
 </body>
 
