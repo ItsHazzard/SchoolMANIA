@@ -30,21 +30,24 @@ body {
 }
 
 .text-container {
-  position: absolute;
-  text-align: center;
-  margin-top: -10%;
+
 }
 
 .text {
   font-size: 150px;
   font-weight: bold;
+  position: absolute;
+  text-align: center;
+  bottom: 70vh;
 }
 
 .sub-text {
   font-size: 24px;
   color: black;
   font-weight: bold;
-  margin-top: 10%;
+  position: absolute;
+  text-align: center;
+  bottom: 78vh;
 }
 
 .btns {
@@ -120,7 +123,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  background-color: black;
+  background-color: rgb(1, 1, 1);
   color: white;
   border-radius: 10px;
   width: 60%;
@@ -148,13 +151,100 @@ body {
   align-items: center;
   margin-top: 20px;
 }
+.color-box-container {
+    position: relative;
+    margin-right: 20%;
+    width: 450px;
+    height: 100px;
+    margin-bottom: 2%;
+}
 
 .color-box {
-  width: 400px;
+  width: 515px;
   height: 100px;
   border-radius: 5px;
   margin-bottom: 10px;
   cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.color-box2 {
+  width: 290px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  margin-left: 29%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.break {
+  width: 405px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 4%;
+}
+
+.class {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  left: 4%;
+}
+
+.time {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  margin-left: 96%;
+  top: 0; /* Align with the top of .class */
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-color: #333;
+    font-size: 32px;
+    font-weight: bolder;
+    border: 2px solid;
+    color: white;
+    text-align: center;
 }
 
 .red {
@@ -170,11 +260,23 @@ body {
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: orange;
 }
 
 .purple {
   background-color: purple;
+}
+
+.black {
+  background-color: #333;
+}
+
+.lblue {
+  background-color: lightblue;
+}
+
+.lime {
+  background-color: lime;
 }
 
 /* Notes textbox styles */
@@ -187,15 +289,17 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.title {
+  margin-left: 38%;
+}
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="text-container">
     <p class="text">SchoolMANIA</p>
     <p class="sub-text">Everything You'll Need To Organise Your School Work</p>
-  </div>
 <div class="btns">
   <div class="btn-container">
     <button class="btn" onclick="openPopup('TIMETABLEpopup')">
@@ -209,7 +313,7 @@ body {
   </div>
 
   <div class="btn-container">
-    <button class="btn" onclick="openPopup('MAPpopup')">
+    <button class="btn" onclick="openPopup('Map')">
       <img class="btn-icon" src="https://iili.io/HZm2qMJ.png" alt="Map">
       <span class="btn-text">Map</span>
     </button>
@@ -220,63 +324,572 @@ body {
   </div>
 </div>
 
-  <!-- Popup containers -->
   <div class="popup-container" id="TIMETABLEpopup">
     <div class="popup-content">
       <span class="close-btn-popup" onclick="closePopup('TIMETABLEpopup')">&#10006;</span>
-      <h1>TimeTable</h1>
-      <!-- Buttons for Monday-Friday -->
-      <div class="btn-container">
-        <button class="btn" onclick="openSubPopup('Monday')">Monday</button>
-        <button class="btn" onclick="openSubPopup('Tuesday')">Tuesday</button>
-        <button class="btn" onclick="openSubPopup('Wednesday')">Wednesday</button>
-        <button class="btn" onclick="openSubPopup('Thursday')">Thursday</button>
-        <button class="btn" onclick="openSubPopup('Friday')">Friday</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sub Popup containers -->
-  <div class="popup-container" id="subPopup">
-    <div class="popup-content">
-      <span class="close-btn-popup" onclick="closePopup('subPopup')">&#10006;</span>
-      <h1 id="subPopupTitle">Day</h1>
+      <h1 class="title">TimeTable</h1>
       <div class="color-boxes">
-        <div class="color-box red" onclick="openEditableText('Subject1')">Subject 1</div>
-        <div class="color-box green" onclick="openEditableText('Subject2')">Subject 2</div>
-        <div class="color-box blue" onclick="openEditableText('Subject3')">Subject 3</div>
-        <!-- Add more subjects as needed -->
+        <button style="margin-top: 35%;" class="color-box red" onclick="openPopup('A'), closePopup('TIMETABLEpopup')">Week A</button>
+        <button class="color-box blue" onclick="openPopup('B'), closePopup('TIMETABLEpopup')">Week B</button>
       </div>
-      <textarea class="notes-textbox" id="editableText"></textarea>
     </div>
   </div>
 
-  <!-- Your existing popups -->
+  <!-- Popup containers -->
+  <div class="popup-container" id="A">
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('A')">&#10006;</span>
+      <h1 class="title">TimeTable</h1>
+      <!-- Buttons for Monday-Friday -->
+      <div class="color-boxes">
+        <button class="color-box red" onclick="openPopup('Monday-A'), closePopup('A')">Monday</button>
+        <button class="color-box yellow" onclick="openPopup('Tuesday-A'), closePopup('A')">Tuesday</button>
+        <button class="color-box green" onclick="openPopup('Wendsday-A'), closePopup('A')">Wednesday</button>
+        <button class="color-box blue" onclick="openPopup('Thursday-A'), closePopup('A')">Thursday</button>
+        <button class="color-box purple" onclick="openPopup('Friday-A'), closePopup('A')">Friday</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="popup-container" id="B">
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('TIMETABLEpopup'), closePopup('B')">&#10006;</span>
+      <h1 class="title">TimeTable</h1>
+      <!-- Buttons for Monday-Friday -->
+      <div class="color-boxes">
+        <button class="color-box red" onclick="openPopup('Monday-B'), closePopup('B')">Monday</button>
+        <button class="color-box yellow" onclick="openPopup('Tuesday-B'), closePopup('B')">Tuesday</button>
+        <button class="color-box green" onclick="openPopup('Wednesday-B'), closePopup('B')">Wednesday</button>
+        <button class="color-box blue" onclick="openPopup('Thursday-B'), closePopup('B')">Thursday</button>
+        <button class="color-box purple" onclick="openPopup('Friday-B'), closePopup('B')">Friday</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-container" id=Monday-A>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Monday-A'), openPopup('A')">&#10006;</span>
+      <div class="color-boxes">
+        <div class="color-box-container">
+        <div class="class black">VCR</div>
+        <div class="color-box2 black">Mentor Group</div>
+        <div class="time black">8:30 8:49</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class red">C8</div>
+        <div class="color-box2 red">English 1</div>
+        <div class="time red">8:50 9:39</div>
+      </div>
+        <div class="color-box-container">
+        <div class="class yellow">A7</div>
+        <div class="color-box2 yellow">Maths 1</div>
+        <div class="time yellow">9:40 10:29</div>
+        </div>
+        <div class="color-box-container">
+        <div class="break black">Recess</div>
+        <div class="time black">10:30 10:49</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class green">A7</div>
+        <div class="color-box2 green">Mandarin 1</div>
+        <div class="time green">10:50 11:39</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class blue">V3</div>
+        <div class="color-box2 blue">PDHPE 2</div>
+        <div class="time blue">11:40 12:29</div>
+        </div>
+        <div class="color-box-container">
+        <div class="break black">Lunch</div>
+        <div class="time black">11:30 1:19</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class purple">E2</div>
+        <div class="color-box2 purple">Interdisiplin 2</div>
+        <div class="time purple">1:20 2:09</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class lblue">M5</div>
+        <div class="color-box2 lblue">Music 2</div>
+        <div class="time lblue">2:10 2:55</div>
+        </div>
+
+        
+  <!-- Sub Popup containers -->
+  <div class="popup-container" id=Tuesday-A>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Tuesday-A'), openPopup('A')">&#10006;</span>
+      <div class="color-boxes">
+        <div class="color-box-container">
+        <div class="class black">VCR</div>
+        <div class="color-box2 black">Mentor Group</div>
+        <div class="time black">8:30 8:49</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class red">C4</div>
+        <div class="color-box2 red">Science 1</div>
+        <div class="time red">8:50 9:39</div>
+      </div>
+        <div class="color-box-container">
+        <div class="class yellow">T6</div>
+        <div class="color-box2 yellow">Technology 1</div>
+        <div class="time yellow">9:40 10:29</div>
+        </div>
+        <div class="color-box-container">
+        <div class="break black">Recess</div>
+        <div class="time black">10:30 10:49</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class green">D7</div>
+        <div class="color-box2 green">History 2</div>
+        <div class="time green">10:50 11:39</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class blue">VCR</div>
+        <div class="color-box2 blue">Mentor Group</div>
+        <div class="time blue">11:40 12:29</div>
+        </div>
+        <div class="color-box-container">
+        <div class="break black">Lunch</div>
+        <div class="time black">11:30 1:19</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class purple">C8</div>
+        <div class="color-box2 purple">English 1</div>
+        <div class="time purple">1:20 2:09</div>
+        </div>
+        <div class="color-box-container">
+        <div class="class lblue">B2</div>
+        <div class="color-box2 lblue">Maths 1</div>
+        <div class="time lblue">2:10 2:55</div>
+        </div>
+        
+  
+  <div class="popup-container" id=Wendsday-A>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Wendsday-A'), openPopup('A')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">C4</div>
+                <div class="color-box2 red">Science 1</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">H6</div>
+                <div class="color-box2 yellow">PDHPE 2</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">T6</div>
+                <div class="color-box2 green">Techn</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">A7</div>
+                <div class="color-box2 blue">Mandarin</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">C8</div>
+                <div class="color-box2 purple">English 1</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">M2</div>
+                <div class="color-box2 lblue">Music 2</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+        
+ 
+  <div class="popup-container" id=Thursday-A>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Thursday-A'), openPopup('A')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">C4</div>
+                <div class="color-box2 red">Science 1</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">A7</div>
+                <div class="color-box2 yellow">Mandarin 1</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">CC</div>
+                <div class="color-box2 green">PDHPE 2</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">CC</div>
+                <div class="color-box2 blue">PDHPE 2</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">D7</div>
+                <div class="color-box2 purple">History 2</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">M5</div>
+                <div class="color-box2 lblue">Music 2</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>>
+        
+  <div class="popup-container" id=Friday-A>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Friday-A'), openPopup('A')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">C4</div>
+                <div class="color-box2 red">Science 1</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">C4</div>
+                <div class="color-box2 yellow">Science 1</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">M5</div>
+                <div class="color-box2 green">Music 2</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">A7</div>
+                <div class="color-box2 blue">Mandarin 1</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">D7</div>
+                <div class="color-box2 purple">History 1</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">B2</div>
+                <div class="color-box2 lblue">Maths</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+ 
+  <!-- Sub Popup containers -->
+  <div class="popup-container" id=Monday-B>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Monday-B'), openPopup('B')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">A7</div>
+                <div class="color-box2 red">Mandarin 1</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">M5</div>
+                <div class="color-box2 yellow">Music 2</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">D7</div>
+                <div class="color-box2 green">History 2</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">B2</div>
+                <div class="color-box2 blue">Maths 1</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">C4</div>
+                <div class="color-box2 purple">Science</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">T6</div>
+                <div class="color-box2 lblue">Technology 1</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+        
+  <!-- Sub Popup containers -->
+  <div class="popup-container" id=Tuesday-B>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Tuesday-B'), openPopup('B')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">CC</div>
+                <div class="color-box2 red">PDHPE 2</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">B2</div>
+                <div class="color-box2 yellow">Maths 1</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">C8</div>
+                <div class="color-box2 green">English 1</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">VCR</div>
+                <div class="color-box2 blue">Mentor Group</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">C8</div>
+                <div class="color-box2 purple">English 1</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">B2</div>
+                <div class="color-box2 lblue">Maths</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+        
+  <!-- Sub Popup containers -->
+  <div class="popup-container" id=Wendsday-B>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Wendsday-B'), openPopup('B')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">I2</div>
+                <div class="color-box2 red">History 2</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">I2</div>
+                <div class="color-box2 yellow">History 2</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">M5</div>
+                <div class="color-box2 green">Music 2</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">B2</div>
+                <div class="color-box2 blue">Maths 1</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">C8</div>
+                <div class="color-box2 purple">English 1</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">B2</div>
+                <div class="color-box2 lblue">Maths</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+        
+  <!-- Sub Popup containers -->
+  <div class="popup-container" id=Thursday-B>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Thursday-B'), popup-content('B')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">A7</div>
+                <div class="color-box2 red">Mandarin 1</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">T6</div>
+                <div class="color-box2 yellow">Technology 1</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">C8</div>
+                <div class="color-box2 green">English 1</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">C8</div>
+                <div class="color-box2 blue">English 1</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">D7</div>
+                <div class="color-box2 purple">History 2</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">H6</div>
+                <div class="color-box2 lblue">PDHPE 2</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+        
+  <!-- Sub Popup containers -->
+  <div class="popup-container" id=Friday-B>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('Friday-B'), openPopup('B')">&#10006;</span>      <div class="color-boxes">
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">E2</div>
+                <div class="color-box2 red">Interdisiplinary 2</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">M5</div>
+                <div class="color-box2 yellow">Music 2</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">I2</div>
+                <div class="color-box2 green">Technology 1</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">CC</div>
+                <div class="color-box2 blue">PDHPE 2</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">C4</div>
+                <div class="color-box2 purple">Science 1</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">B2</div>
+                <div class="color-box2 lblue">Maths 1</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+    
+    
+    <div class="popup-container" id="LISTpopup">
+      <div class="popup-content">
+        <span class="close-btn-popup" onclick="closePopup('LISTpopup')">&#10006;</span>
+        
+        
+        <h1>CheckList</h1>
+        <p>This is the content of the CheckList popup.</p>
+      </div>
+    </div>
+  
+    <div class="popup-container" id="Map">
+      <div class="popup-content">
+        <span class="close-btn-popup" onclick="closePopup('Map')">&#10006;</span>
+        <h1>Map</h1>
+        <img src="https://itshazzard.github.io/SchoolMANIA/Photos/HVGSmap.png" alt="Map">
+      </div>
+    </div>
+    
+  
+    <div class="popup-container" id="NOTESpopup">
+      <div class="popup-content">
+          <span class="close-btn-popup" onclick="closePopup('NOTESpopup')">&#10006;</span>
+          <h1>Notes</h1>
+          <h2>Subject 1</h2>
+          <textarea class="notes-box"></textarea>
+          <h2>Subject 2</h2>
+          <textarea class="notes-box"></textarea>
+          <h2>Subject 3</h2>
+          <textarea class="notes-box"></textarea>
+          <!-- Repeat for other subjects... -->
+      </div>
+  </div>
 
   <script>
-    const editableText = document.getElementById('editableText');
-
-    if (localStorage.getItem('savedText')) {
-      editableText.value = localStorage.getItem('savedText');
-    }
-
-    editableText.addEventListener('input', function () {
-      localStorage.setItem('savedText', this.value);
-    });
-
-    function openSubPopup(day) {
-      const subPopup = document.getElementById('subPopup');
-      const subPopupTitle = document.getElementById('subPopupTitle');
-      subPopupTitle.textContent = day;
-      subPopup.style.display = 'block';
-      document.addEventListener('keydown', handleEscapeKey);
-    }
-
-    function openEditableText(subject) {
-      const editableText = document.getElementById('editableText');
-      editableText.value = localStorage.getItem(subject) || '';
-      openSubPopup(subject);
-    }
 
     function openPopup(popupId) {
       document.getElementById(popupId).style.display = 'block';
@@ -292,8 +905,20 @@ body {
       if (event.keyCode === 27) {
         closePopup('TIMETABLEpopup');
         closePopup('LISTpopup');
-        closePopup('MAPpopup');
+        closePopup('Map');
         closePopup('NOTESpopup');
+        closePopup('Monday-A');
+        closePopup('Tuesday-A');
+        closePopup('Wendsday-A');
+        closePopup('Thursday-A');
+        closePopup('Friday-A');
+        closePopup('Monday-B');
+        closePopup('Tuesday-B');
+        closePopup('Wendsday-B');
+        closePopup('Thursday-B');
+        closePopup('Friday-B');
+        closePopup('A');
+        closePopup('B');
       }
     }
   </script>
