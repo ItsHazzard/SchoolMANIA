@@ -1,0 +1,287 @@
+html, body {
+  height: 100%;
+}
+
+/* Background styles */
+body {
+  background-image: url('https://itshazzard.github.io/SchoolMANIA/Photos/Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Font styles */
+body {
+  font-family: 'Oswald', Bold;
+  color: white;
+}
+
+.text-container {
+
+}
+
+.text {
+  font-size: 150px;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  bottom: 70vh;
+}
+
+.sub-text {
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
+  position: absolute;
+  text-align: center;
+  bottom: 78vh;
+}
+
+.btns {
+  margin-top: 22vh;
+  }
+/* Button styles */
+.btn-container {
+    padding: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px;
+  font-size: 36px;
+  background-color: transparent;
+  color: White;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease;
+  border: 5px solid;
+  border-image: linear-gradient(to bottom, black, grey) 1;
+  border-image-slice: 1;
+  position: relative;
+  overflow: hidden;
+  width: 360px;
+  height: 360px;
+  text-align: center;
+}
+
+.btn img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60%;
+  max-height: 60%;
+}
+
+.btn-text {
+  display: block;
+  text-align: center;
+  margin-top: 90%;
+  transform: translateY(-50%);
+  color: black;
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+.btn:hover {
+  color: grey;
+  border-image: linear-gradient(lightblue, cyan) 1;
+  transform: scale(1.3);
+}
+
+/* Popup styles */
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+  align-content: center;
+  transform: scale(1.5);
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgb(1, 1, 1);
+  color: white;
+  border-radius: 10px;
+  width: 60%;
+  height: 60%;
+  overflow: auto;
+}
+
+.close-btn-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-btn-popup:hover {
+  transform: scale(1.8);
+  color: red;
+}
+
+/* Color box styles */
+.color-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.color-box-container {
+    position: relative;
+    margin-right: 20%;
+    width: 450px;
+    height: 100px;
+    margin-bottom: 2%;
+}
+
+.color-box {
+  width: 515px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.color-box2 {
+  width: 290px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  margin-left: 29%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.break {
+  width: 405px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 4%;
+}
+
+.class {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-color: #333;
+  font-size: 32px;
+  font-weight: bolder;
+  border: 2px solid;
+  color: white;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  left: 4%;
+}
+
+.time {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  margin-left: 96%;
+  top: 0; /* Align with the top of .class */
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-color: #333;
+    font-size: 32px;
+    font-weight: bolder;
+    border: 2px solid;
+    color: white;
+    text-align: center;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: orange;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.black {
+  background-color: #333;
+}
+
+.lblue {
+  background-color: lightblue;
+}
+
+.lime {
+  background-color: lime;
+}
+
+/* Notes textbox styles */
+.notes-textbox {
+  width: 100%;
+  height: 200px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.title {
+  margin-left: 38%;
+}
