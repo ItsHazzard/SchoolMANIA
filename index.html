@@ -129,30 +129,53 @@ function openSubPopup(subPopupId, parentId) {
   openPopup(subPopupId);
 }
 
-function saveNotes(subjectId) {
-  var notesText = document.getElementById(subjectId).value;
-  localStorage.setItem(subjectId, notesText);
+	
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-// Function to load saved notes on page load
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+function saveNotes(subjectId) {
+  var notesText = document.getElementById(subjectId).value;
+  setCookie(subjectId, notesText, 365); // 365 days expiration, adjust as needed
+}
+
 function loadSavedNotes() {
-  var subject1Notes = localStorage.getItem('subject1Notes');
+  var subject1Notes = getCookie('subject1Notes');
   if (subject1Notes) {
     document.getElementById('subject1Notes').value = subject1Notes;
   }
 
-  var subject2Notes = localStorage.getItem('subject2Notes');
+  var subject2Notes = getCookie('subject2Notes');
   if (subject2Notes) {
     document.getElementById('subject2Notes').value = subject2Notes;
   }
 
-  var subject3Notes = localStorage.getItem('subject3Notes');
+  var subject3Notes = getCookie('subject3Notes');
   if (subject3Notes) {
     document.getElementById('subject3Notes').value = subject3Notes;
   }
-
 }
 
-  </script>
+// Call loadSavedNotes on page load
+window.onload = loadSavedNotes;
+</script>
+
 </body>
 </html>
