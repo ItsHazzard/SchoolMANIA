@@ -10,7 +10,7 @@
   <!-- Popup containers -->
   <div class="popup-container" id="A">
     <div class="popup-content">
-      <span class="close-btn-popup" href="index.html">&#10006;</span>
+      <span class="close-btn-popup" onclick="redirect('index.html')">&#10006;</span>
       <h1 class="title">TimeTable</h1>
       <!-- Buttons for Monday-Friday -->
       <div class="color-boxes">
@@ -219,6 +219,10 @@
                 </div>
                 
 <script>
+  function redirect(url) {
+  window.location.href = url;
+}
+  
 window.onload = function() {
   openPopup('A');
 };
