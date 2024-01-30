@@ -8,7 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
     <div class="popup-content">
-      <span class="close-btn-popup" href="A.html">&#10006;</span>
+      <div class="popup-container" id="Monday-A">
+      <span class="close-btn-popup" onclick="redirect('A.html')">&#10006;</span>
       <div class="color-boxes">
         <div class="color-box-container">
         <div class="class black">VCR</div>
@@ -53,4 +54,14 @@
         <div class="color-box2 lblue">Music 2</div>
         <div class="time lblue">2:10 2:55</div>
         </div>
+
+        <script>
+          window.onload = function() {
+  openPopup('Monday-A');
+};
+
+function redirect(url) {
+  window.location.href = url;
+}
+        </script>
 
