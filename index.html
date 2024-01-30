@@ -86,14 +86,22 @@
 <div class="popup-container" id="NOTESpopup">
   <div class="popup-content">
     <span class="close-btn-popup" onclick="closePopup('NOTESpopup')">&#10006;</span>
-    <h1>Notes</h1>
-    <h2>Subject 1</h2>
-    <textarea class="notes-box" id="subject1Notes" oninput="saveNotes('subject1Notes')"></textarea>
-    <h2>Subject 2</h2>
-    <textarea class="notes-box" id="subject2Notes" oninput="saveNotes('subject2Notes')"></textarea>
-    <h2>Subject 3</h2>
-    <textarea class="notes-box" id="subject3Notes" oninput="saveNotes('subject3Notes')"></textarea>
-    <!-- Repeat for other subjects... -->
+    <h1 class="title">Notes</h1>
+    <h2>Maths</h2>
+    <textarea class="notes-box" id="Maths" oninput="saveNotes('Maths')"></textarea>
+    <h2>English</h2>
+    <textarea class="notes-box" id="English" oninput="saveNotes('English')"></textarea>
+    <h2>Manderin</h2>
+    <textarea class="notes-box" id="Manderin" oninput="saveNotes('Manderin')"></textarea>
+    <h2>Science</h2>
+    <textarea class="notes-box" id="Science" oninput="saveNotes('Science')"></textarea>
+    <h2>History</h2>
+    <textarea class="notes-box" id="History" oninput="saveNotes('History')"></textarea>
+    <h2>Geography</h2>
+    <textarea class="notes-box" id="Geography" oninput="saveNotes('Geography')"></textarea>
+    <h2>Technology</h2>
+    <textarea class="notes-box" id="Technology" oninput="saveNotes('Technology')"></textarea>
+  </div>
   </div>
 </div>
 
@@ -157,19 +165,39 @@ function saveNotes(subjectId) {
 }
 
 function loadSavedNotes() {
-  var subject1Notes = getCookie('subject1Notes');
-  if (subject1Notes) {
-    document.getElementById('subject1Notes').value = subject1Notes;
+  var Maths = getCookie('Maths');
+  if (Maths) {
+    document.getElementById('Maths').value = Maths;
   }
 
-  var subject2Notes = getCookie('subject2Notes');
-  if (subject2Notes) {
-    document.getElementById('subject2Notes').value = subject2Notes;
+  var English = getCookie('English');
+  if (English) {
+    document.getElementById('English').value = English;
   }
 
-  var subject3Notes = getCookie('subject3Notes');
-  if (subject3Notes) {
-    document.getElementById('subject3Notes').value = subject3Notes;
+  var Manderin = getCookie('Manderin');
+  if (Manderin) {
+    document.getElementById('Manderin').value = Manderin;
+  }
+	
+  var History = getCookie('History');
+  if (History) {
+    document.getElementById('History').value = History;
+  }
+
+  var Science = getCookie('Science');
+  if (Science) {
+    document.getElementById('Science').value = Science;
+  }
+
+  var Geography = getCookie('Geography');
+  if (Geography) {
+    document.getElementById('Geography').value = Geography;
+  }
+
+  var Technology = getCookie('Technology');
+  if (Technology) {
+    document.getElementById('Technology').value = Technology;
   }
 }
 
