@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SchoolMANIA</title>
+  <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</head>
+  <!-- Popup containers -->
+  <div class="popup-container" id="A">
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="redirect('index.html')">&#10006;</span>
+      <h1 class="title">TimeTable</h1>
+      <!-- Buttons for Monday-Friday -->
+      <div class="color-boxes">
+        <button class="color-box red" onclick="redirect('Monday-A.html')">Monday</button>
+        <button class="color-box yellow" onclick="redirect('Tuesday-A.html')">Tuesday</button>
+        <button class="color-box green" onclick="redirect('Wednesday-A.html')">Wednesday</button>
+        <button class="color-box blue" onclick="redirect('Thursday-A.html')">Thursday</button>
+        <button class="color-box purple" onclick="redirect('Friday-A.html')">Friday</button>
+      </div>
+    </div>
+  </div>
+                
+<script>
+  function redirect(url) {
+  window.location.href = url;
+}
+  
+window.onload = function() {
+  openPopup('A');
+};
+
+// Function to open popups
+function openPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = "block";
+  } else {
+    console.error("Popup with ID '" + popupId + "' not found.");
+  }
+}
+  </script>
+</body>
+</html>
+ 
