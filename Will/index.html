@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SchoolMANIA</title>
+  <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  	<meta name="theme-color" content="#285FF4">
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="SchoolMania">
+		<meta property="og:title" content="Harrys Timetable">
+		<meta property="og:description" content="Harrys Timetable">
+		<meta property="og:image" content="/Photos/favicon.png">
+		<link rel="shortcut icon" href="/Photos/favicon.png">
+</head>
+
+<body>
+    <p class="text">SchoolMANIA</p>
+    <p class="sub-text">Everything You'll Need To Organise Your School Work</p>
+<div class="btns">
+  <div class="btn-container">
+    <button class="btn" onclick="openPopup('TIMETABLEpopup')">
+      <img class="btn-icon" src="https://iili.io/HZm2B6v.png" alt="TimeTable">
+      <span class="btn-text">TimeTable</span>
+    </button>
+    <button class="btn" onclick="openPopup('LISTpopup')">
+      <img class="btn-icon" src="https://iili.io/HZm3NXn.png" alt="CheckList">
+      <span class="btn-text">Links</span>
+    </button>
+  </div>
+
+  <div class="btn-container">
+    <button class="btn" onclick="openPopup('Map')">
+      <img class="btn-icon" src="https://iili.io/HZm2qMJ.png" alt="Map">
+      <span class="btn-text">Map</span>
+    </button>
+    <button class="btn" onclick="openPopup('NOTESpopup')">
+      <img class="btn-icon" src="https://iili.io/HZm2Tut.png" alt="Notes">
+      <span class="btn-text">Notes</span>
+    </button>
+  </div>
+</div>
+
+<div class="popup-container" id="TIMETABLEpopup">
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="closePopup('TIMETABLEpopup')">&#10006;</span>
+      <h1 class="title">TimeTable</h1>
+      <div class="color-boxes">
+        <a onclick="redirect('A.html')" class="color-box red">Week A</a>
+        <a onclick="redirect('B.html')" class="color-box blue">Week B</a>
+      </div>
+    </div>
+  </div>
+
+
+
+    
+    
+    <div class="popup-container" id="LISTpopup">
+      <div class="popup-content">
+        <span class="close-btn-popup" onclick="closePopup('LISTpopup')">&#10006;</span>
+        <h1 class="title">Links</h1>
+        <div color-boxes>
+	 <div class="color-box-container">
+        <a onclick="link('https://web.toddleapp.com/')" class="link red">Toddle</a>
+	<img class="class red" src="https://iili.io/JcDLx0F.jpg">
+	 </div>
+	 <div class="color-box-container">
+	<a onclick="link('https://hvgs.nsw.tass.cloud/studentcafe')" class="link green">Student Café</a>
+	<img class="class green" src="https://iili.io/Jcbdlqb.jpg">
+	 </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="popup-container" id="Map">
+      <div class="popup-content">
+        <span class="close-btn-popup" onclick="closePopup('Map')">&#10006;</span>
+        <h1>Map</h1>
+        <img src="https://itshazzard.github.io/SchoolMANIA/Photos/HVGSmap.png" alt="Map">
+      </div>
+    </div>
+    
+  
+<div class="popup-container" id="NOTESpopup">
+  <div class="popup-content">
+    <span class="close-btn-popup" onclick="closePopup('NOTESpopup')">&#10006;</span>
+    <h1 class="title">Notes</h1>
+    <h2>Maths</h2>
+    <textarea class="notes-box" id="Maths" oninput="saveNotes('Maths')"></textarea>
+    <h2>English</h2>
+    <textarea class="notes-box" id="English" oninput="saveNotes('English')"></textarea>
+    <h2>Manderin</h2>
+    <textarea class="notes-box" id="Manderin" oninput="saveNotes('Manderin')"></textarea>
+    <h2>Science</h2>
+    <textarea class="notes-box" id="Science" oninput="saveNotes('Science')"></textarea>
+    <h2>History</h2>
+    <textarea class="notes-box" id="History" oninput="saveNotes('History')"></textarea>
+    <h2>Geography</h2>
+    <textarea class="notes-box" id="Geography" oninput="saveNotes('Geography')"></textarea>
+    <h2>Technology</h2>
+    <textarea class="notes-box" id="Technology" oninput="saveNotes('Technology')"></textarea>
+  </div>
+  </div>
+</div>
+
+
+<script>
+function redirect(url) {
+  window.location.href = url;
+}
+
+function link(url) {
+  window.open(url, '_blank');
+}
+
+// Function to open popups
+function openPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = "block";
+  } else {
+    console.error("Popup with ID '" + popupId + "' not found.");
+  }
+}
+
+function closePopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = 'none';
+  }
+}
+
+function openSubPopup(subPopupId, parentId) {
+  closePopup(parentId);
+  openPopup(subPopupId);
+}
+
+	
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+function saveNotes(subjectId) {
+  var notesText = document.getElementById(subjectId).value;
+  setCookie(subjectId, notesText, 365); // 365 days expiration, adjust as needed
+}
+
+function loadSavedNotes() {
+  var Maths = getCookie('Maths');
+  if (Maths) {
+    document.getElementById('Maths').value = Maths;
+  }
+
+  var English = getCookie('English');
+  if (English) {
+    document.getElementById('English').value = English;
+  }
+
+  var Manderin = getCookie('Manderin');
+  if (Manderin) {
+    document.getElementById('Manderin').value = Manderin;
+  }
+	
+  var History = getCookie('History');
+  if (History) {
+    document.getElementById('History').value = History;
+  }
+
+  var Science = getCookie('Science');
+  if (Science) {
+    document.getElementById('Science').value = Science;
+  }
+
+  var Geography = getCookie('Geography');
+  if (Geography) {
+    document.getElementById('Geography').value = Geography;
+  }
+
+  var Technology = getCookie('Technology');
+  if (Technology) {
+    document.getElementById('Technology').value = Technology;
+  }
+}
+
+// Call loadSavedNotes on page load
+window.onload = loadSavedNotes;
+</script>
+
+</body>
+</html>
