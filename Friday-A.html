@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SchoolMANIA</title>
+  <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+</head>
+
+<div class="popup-container" id=Friday-A>
+    <div class="popup-content">
+      <span class="close-btn-popup" onclick="redirect('A.html')">&#10006;</span>
+      <div class="color-boxes">
+                <div class="color-box-container">
+                <div class="class black">VCR</div>
+                <div class="color-box2 black">Mentor Group</div>
+                <div class="time black">8:30 8:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class red">C4</div>
+                <div class="color-box2 red">Science 1</div>
+                <div class="time red">8:50 9:39</div>
+              </div>
+                <div class="color-box-container">
+                <div class="class yellow">C4</div>
+                <div class="color-box2 yellow">Science 1</div>
+                <div class="time yellow">9:40 10:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Recess</div>
+                <div class="time black">10:30 10:49</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class green">M5</div>
+                <div class="color-box2 green">Music 2</div>
+                <div class="time green">10:50 11:39</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class blue">A7</div>
+                <div class="color-box2 blue">Mandarin 1</div>
+                <div class="time blue">11:40 12:29</div>
+                </div>
+                <div class="color-box-container">
+                <div class="break black">Lunch</div>
+                <div class="time black">11:30 1:19</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class purple">D7</div>
+                <div class="color-box2 purple">History 1</div>
+                <div class="time purple">1:20 2:09</div>
+                </div>
+                <div class="color-box-container">
+                <div class="class lblue">B2</div>
+                <div class="color-box2 lblue">Maths</div>
+                <div class="time lblue">2:10 2:55</div>
+                </div>
+
+        <script>
+          window.onload = function() {
+  openPopup('Friday-A');
+};
+
+function redirect(url) {
+  window.location.href = url;
+}
+
+// Function to open popups
+function openPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = "block";
+  } else {
+    console.error("Popup with ID '" + popupId + "' not found.");
+  }
+}
+        </script>
