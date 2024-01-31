@@ -162,12 +162,26 @@ body {
   color: red;
 }
 
+.swap {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swap:hover {
+  transform: scale(1.8);
+  color: blue;
+}
+
 /* Color box styles */
 .color-boxes {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  cursor: default;
 }
 .color-box-container {
     position: relative;
@@ -175,6 +189,7 @@ body {
     width: 450px;
     height: 100px;
     margin-bottom: 2%;
+    cursor: default;
 }
 
 .color-box-row {
@@ -216,6 +231,7 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
+  cursor: default;
 }
 
 .link {
@@ -251,6 +267,7 @@ body {
   justify-content: center;
   display: flex;
   margin-left: 4%;
+  cursor: default;
 }
 
 .class {
@@ -269,6 +286,7 @@ body {
   justify-content: center;
   display: flex;
   left: 4%;
+  cursor: default;
 }
 
 .time {
@@ -289,6 +307,7 @@ body {
     border: 2px solid;
     color: white;
     text-align: center;
+    cursor: default;
 }
 
 .red {
