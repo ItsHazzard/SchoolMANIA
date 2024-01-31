@@ -14,62 +14,14 @@
       <h1 class="title">TimeTable</h1>
       <!-- Buttons for Monday-Friday -->
       <div class="color-boxes">
-        <button class="color-box red" onclick="openSubPopup('Monday-B', 'B')">Monday</button>
-        <button class="color-box yellow" onclick="openSubPopup('Tuesday-B', 'B')">Tuesday</button>
-        <button class="color-box green" onclick="openSubPopup('Wednesday-B', 'B')">Wednesday</button>
-        <button class="color-box blue" onclick="openSubPopup('Thursday-B', 'B')">Thursday</button>
-        <button class="color-box purple" onclick="openSubPopup('Friday-B', 'B')">Friday</button>
+        <button class="color-box red" onclick="redirect('Monday-B.html')">Monday</button>
+        <button class="color-box yellow" onclick="redirect('Tuesday-B.html')">Tuesday</button>
+        <button class="color-box green" onclick="redirect('Wednesday-B.html')">Wednesday</button>
+        <button class="color-box blue" onclick="redirect('Thursday-B.html')">Thursday</button>
+        <button class="color-box purple" onclick="redirect('Friday-B.html')">Friday</button>
       </div>
     </div>
   </div>
-    <!-- Sub Popup containers -->
-    <div class="popup-container" id=Monday-B>
-      <div class="popup-content">
-        <span href="index.html">&#10006;</span>
-        <div class="color-boxes">
-                  <div class="color-box-container">
-                  <div class="class black">VCR</div>
-                  <div class="color-box2 black">Mentor Group</div>
-                  <div class="time black">8:30 8:49</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class red">A7</div>
-                  <div class="color-box2 red">Mandarin 1</div>
-                  <div class="time red">8:50 9:39</div>
-                </div>
-                  <div class="color-box-container">
-                  <div class="class yellow">M5</div>
-                  <div class="color-box2 yellow">Music 2</div>
-                  <div class="time yellow">9:40 10:29</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="break black">Recess</div>
-                  <div class="time black">10:30 10:49</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class green">D7</div>
-                  <div class="color-box2 green">History 2</div>
-                  <div class="time green">10:50 11:39</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class blue">B2</div>
-                  <div class="color-box2 blue">Maths 1</div>
-                  <div class="time blue">11:40 12:29</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="break black">Lunch</div>
-                  <div class="time black">11:30 1:19</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class purple">C4</div>
-                  <div class="color-box2 purple">Science</div>
-                  <div class="time purple">1:20 2:09</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class lblue">T6</div>
-                  <div class="color-box2 lblue">Technology 1</div>
-                  <div class="time lblue">2:10 2:55</div>
-                  </div>
           
     <!-- Sub Popup containers -->
     <div class="popup-container" id=Tuesday-B>
@@ -268,31 +220,23 @@
                   </div>
                   
                   <script>
-                  window.onload = function() {
-                    openPopup('B');
-                  };
-                  
-                  // Function to open popups
-                  function openPopup(popupId) {
-                    var popup = document.getElementById(popupId);
-                    if (popup) {
-                      popup.style.display = "block";
-                    } else {
-                      console.error("Popup with ID '" + popupId + "' not found.");
-                    }
-                  }
-                  
-                  function closePopup(popupId) {
-                    var popup = document.getElementById(popupId);
-                    if (popup) {
-                      popup.style.display = 'none';
-                    }
-                  }
-                  
-                  function openSubPopup(subPopupId, parentId) {
-                    closePopup(parentId);
-                    openPopup(subPopupId);
-                  }
+  function redirect(url) {
+  window.location.href = url;
+}
+  
+window.onload = function() {
+  openPopup('B');
+};
+
+// Function to open popups
+function openPopup(popupId) {
+  var popup = document.getElementById(popupId);
+  if (popup) {
+    popup.style.display = "block";
+  } else {
+    console.error("Popup with ID '" + popupId + "' not found.");
+  }
+}
                     </script>
                   </body>
                   </html>
