@@ -177,6 +177,14 @@ body {
     margin-bottom: 2%;
 }
 
+.color-box-row {
+    position: relative;
+    margin-right: 20%;
+    width: 450px;
+    height: 100px;
+    margin-bottom: 2%;
+}
+
 .color-box {
   width: 515px;
   height: 100px;
