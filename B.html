@@ -7,55 +7,21 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
-          
-    <!-- Sub Popup containers -->
-    <div class="popup-container" id=Tuesday-B>
-      <div class="popup-content">
-        <span class="close-btn-popup" onclick="closePopup('Tuesday-B'), openPopup('B')">&#10006;</span>
-        <div class="color-boxes">
-                  <div class="color-box-container">
-                  <div class="class black">VCR</div>
-                  <div class="color-box2 black">Mentor Group</div>
-                  <div class="time black">8:30 8:49</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class red">CC</div>
-                  <div class="color-box2 red">PD Health 1</div>
-                  <div class="time red">8:50 9:39</div>
-                </div>
-                  <div class="color-box-container">
-                  <div class="class yellow">M5</div>
-                  <div class="color-box2 yellow">Music 2</div>
-                  <div class="time yellow">9:40 10:29</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="break black">Recess</div>
-                  <div class="time black">10:30 10:49</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class green">D7</div>
-                  <div class="color-box2 green">History 2</div>
-                  <div class="time green">10:50 11:39</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class blue">VCR</div>
-                  <div class="color-box2 blue">Mentor Group</div>
-                  <div class="time blue">11:40 12:29</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="break black">Lunch</div>
-                  <div class="time black">11:30 1:19</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class purple">C8</div>
-                  <div class="color-box2 purple">English 1</div>
-                  <div class="time purple">1:20 2:09</div>
-                  </div>
-                  <div class="color-box-container">
-                  <div class="class lblue">B2</div>
-                  <div class="color-box2 lblue">Maths</div>
-                  <div class="time lblue">2:10 2:55</div>
-                  </div>
+
+  <div class="popup-container" id="B">
+    <div class="popup-content">
+      <span href="index">&#10006;</span>
+      <h1 class="title">TimeTable</h1>
+      <!-- Buttons for Monday-Friday -->
+      <div class="color-boxes">
+        <button class="color-box red" onclick="redirect('Monday-B.html')">Monday</button>
+        <button class="color-box yellow" onclick="redirect('Tuesday-B.html')">Tuesday</button>
+        <button class="color-box green" onclick="redirect('Wednesday-B.html')">Wednesday</button>
+        <button class="color-box blue" onclick="redirect('Thursday-B.html')">Thursday</button>
+        <button class="color-box purple" onclick="redirect('Friday-B.html')">Friday</button>
+      </div>
+    </div>
+  </div>
           
     <!-- Sub Popup containers -->
     <div class="popup-container" id=Wendsday-B>
