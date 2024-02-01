@@ -172,7 +172,7 @@ body {
 
 .swap:hover {
   transform: scale(1.8);
-  color: blue;
+  color: green;
 }
 
 /* Color box styles */
