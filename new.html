@@ -99,48 +99,8 @@
         <p class="day-week" id="day-week-info">Loading...</p>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script>
-        // Timetable data
-        const timetableData = {
-            "Week A": {
-                "Monday": {
-                    "Period-0": {"Class": "Mentor Group", "Room": "VCR", "Time": "8:30 8:49"},
-                    "Period-1": {"Class": "English 1", "Room": "C8", "Time": "8:50 9:39"},
-                    "Period-2": {"Class": "Maths 1", "Room": "A7", "Time": "9:40 10:29"},
-                    "Recess": {"Time": "10:30 10:49"},
-                    "Period-3": {"Class": "Mandarin 1", "Room": "A7", "Time": "10:50 11:39"},
-                    "Period-4": {"Class": "PDHPE 2", "Room": "H5", "Time": "11:40 12:29"},
-                    "Lunch": {"Time": "12:30 1:19"},
-                    "Period-5": {"Class": "Interdisciplinary 2", "Room": "E2", "Time": "1:20 2:09"},
-                    "Period-6": {"Class": "Music 2", "Room": "M5", "Time": "2:10 2:55"}
-                },
-                "Tuesday": {
-                    "Period-0": {"Class": "Mentor Group", "Room": "VCR", "Time": "8:30 8:49"},
-                    "Period-1": {"Class": "Science 1", "Room": "C4", "Time": "8:50 9:39"},
-                    "Period-2": {"Class": "Technology 1", "Room": "T6", "Time": "9:40 10:29"},
-                    "Recess": {"Time": "10:30 10:49"},
-                    "Period-3": {"Class": "History 2", "Room": "D7", "Time": "10:50 11:39"},
-                    "Period-4": {"Class": "Mentor Group", "Room": "VCR", "Time": "11:40 12:29"},
-                    "Lunch": {"Time": "12:30 1:19"},
-                    "Period-5": {"Class": "English 1", "Room": "C8", "Time": "1:20 2:09"},
-                    "Period-6": {"Class": "Maths 1", "Room": "B2", "Time": "2:10 2:55"}
-                },
-                // Remaining days for Week A...
-            },
-            "Week B": {
-                "Monday": {
-                    "Period-0": {"Class": "Mentor Group", "Room": "VCR", "Time": "8:30 8:49"},
-                    "Period-1": {"Class": "Mandarian 1", "Room": "A7", "Time": "8:50 9:39"},
-                    "Period-2": {"Class": "Music 2", "Room": "M5", "Time": "9:40 10:29"},
-                    "Recess": {"Time": "10:30 10:49"},
-                    "Period-3": {"Class": "History 2", "Room": "I2", "Time": "10:50 11:39"},
-                    "Period-4": {"Class": "Maths 1", "Room": "B2", "Time": "11:40 12:29"},
-                    "Lunch": {"Time": "12:30 1:19"},
-                    "Period-5": {"Class": "Science 1", "Room": "C4", "Time": "1:20 2:09"},
-                    "Period-6": {"Class": "Technology 1", "Room": "T6", "Time": "2:10 2:55"}
-            }
-        };
-
         // Function to determine the current week
         function getWeek(date) {
             const weekNumber = date.getDay() === 1 && date.getDate() === 19 && date.getMonth() === 1 ? "B" : "A"; // February 19th is Week B
@@ -148,29 +108,26 @@
         }
 
         // Function to get the timetable for the current day
-        function getTimetable() {
+        async function getTimetable() {
+            const response = await fetch('timetable.yaml');
+            const timetableData = await response.text();
+            return jsyaml.load(timetableData);
+        }
+
+        // Function to update the timetable information on the webpage
+        async function updateTimetableInfo() {
+            const timetable = await getTimetable();
             const today = new Date();
             const week = getWeek(today);
             const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
 
-            if (timetableData[week] && timetableData[week][dayOfWeek]) {
-                return timetableData[week][dayOfWeek];
-            } else {
-                return { "message": "No timetable information available for today." };
-            }
-        }
-
-        // Function to update the timetable information on the webpage
-        function updateTimetableInfo() {
-            const timetable = getTimetable();
             const timetableInfoContainer = document.getElementById("timetable-info");
             timetableInfoContainer.innerHTML = "";
 
-            if ("message" in timetable) {
-                timetableInfoContainer.textContent = timetable.message;
-            } else {
-                Object.keys(timetable).forEach(period => {
-                    const periodData = timetable[period];
+            if (timetable[week] && timetable[week][dayOfWeek]) {
+                const dayTimetable = timetable[week][dayOfWeek];
+                Object.keys(dayTimetable).forEach(period => {
+                    const periodData = dayTimetable[period];
                     const periodInfo = document.createElement("div");
                     periodInfo.classList.add("period-info");
                     periodInfo.innerHTML = `
@@ -178,15 +135,14 @@
                     `;
                     timetableInfoContainer.appendChild(periodInfo);
                 });
+            } else {
+                timetableInfoContainer.textContent = "No timetable information available for today.";
             }
 
             // Update day and week information
-            const week = getWeek(new Date());
-            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getDay()];
-            document.getElementById("day-week-info").textContent = `${dayOfWeek}, ${week}`;
-       
-
- }
+            const dayOfWeekName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+            document.getElementById("day-week-info").textContent = `${dayOfWeekName}, ${week}`;
+        }
 
         // Call the function to update timetable information when the page loads
         window.onload = function() {
