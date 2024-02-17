@@ -12,6 +12,7 @@
             padding: 20px;
         }
         .panel {
+            position: relative; /* Added to make positioning relative for absolute positioning */
             background-color: #333333;
             padding: 20px;
             border-radius: 10px;
@@ -24,12 +25,20 @@
             font-size: 18px;
             margin-top: 10px;
         }
+        .day-week {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 14px;
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body>
     <div class="panel" id="uniform-panel">
         <h1>Today's Uniform:</h1>
         <p id="uniform-info">Loading...</p>
+        <p class="day-week" id="day-week-info">Loading...</p>
     </div>
 
     <script>
@@ -41,7 +50,6 @@
                 "Wednesday": {"uniform": "Sports", "action": "Wear"},
                 "Thursday": {"uniform": "Casual", "action": "Wear"},
                 "Friday": {"uniform": "Uniform", "action": "Wear"}
-                "Saturday": {"uniform": "A", "action": "Works"}
             },
             "Week B": {
                 "Monday": {"uniform": "Formal", "action": "Wear"},
@@ -49,7 +57,6 @@
                 "Wednesday": {"uniform": "Uniform", "action": "Wear"},
                 "Thursday": {"uniform": "Sports", "action": "Wear"},
                 "Friday": {"uniform": "Casual", "action": "Wear"}
-                "Saturday": {"uniform": "B", "action": "Works"}
             }
         };
 
@@ -63,7 +70,7 @@
         function getUniform() {
             const today = new Date();
             const week = getWeek(today);
-            const dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][today.getDay()];
+            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
 
             if (uniformData[week] && uniformData[week][dayOfWeek]) {
                 return uniformData[week][dayOfWeek];
@@ -76,10 +83,19 @@
         function updateUniformInfo() {
             const { uniform, action } = getUniform();
             document.getElementById("uniform-info").textContent = `${uniform} - ${action}`;
+
+            // Update day and week information
+            const today = new Date();
+            const week = getWeek(today);
+            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+            document.getElementById("day-week-info").textContent = `${dayOfWeek}, ${week}`;
         }
 
         // Call the function to update uniform information when the page loads
-        window.onload = updateUniformInfo;
+        window.onload = function() {
+            updateUniformInfo();
+            setInterval(updateUniformInfo, 1000 * 60); // Update every minute
+        };
     </script>
 </body>
 </html>
