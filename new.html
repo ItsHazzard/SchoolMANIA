@@ -4,78 +4,52 @@
   <meta charset="UTF-8">
   <title>SchoolMANIA</title>
   <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://itshazzard.github.io/SchoolMANIA/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="timetable-container" class="popup-container">
+    <div class="popup-content">
     <!-- Timetable content will be dynamically generated here -->
+    </div>
   </div>
 
+  <!-- Include js-yaml library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script>
-    // Function to fetch YAML data
-    async function fetchYAML(url) {
-      const response = await fetch(url);
-      const text = await response.text();
-      return jsyaml.load(text);
-    }
+    function generateTimetableHTML(timetableData) {
+      const dayTimetable = timetableData['A']['Monday'];
 
-    // Function to determine the current week
-    function getWeek(date) {
-      const weekNumber = date.getDay() >= 1 && date.getDay() <= 5 ? "B" : "A";
-      return `Week ${weekNumber}`;
-    }
-
-    // Function to get the timetable for the current day
-    function getTimetable() {
-      const today = new Date();
-      const week = getWeek(today);
-      const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
-      return timetableData[week][dayOfWeek];
-    }
-
-    // Function to generate HTML for timetable
-    function generateTimetableHTML() {
-      const timetable = getTimetable();
-      const container = document.getElementById("timetable-container");
-      container.innerHTML = ""; // Clear previous content
-      
-      for (const period in timetable) {
-        const { Class, Room, Time } = timetable[period];
-        const [start, end] = Time.split(" ");
-        container.innerHTML += `
+      let timetableHTML = '';
+      Object.keys(dayTimetable).forEach(period => {
+        const { Class, Room, Time } = dayTimetable[period];
+        let classCss = "color-box2";
+        if (Class.toLowerCase() === "lunch" || Class.toLowerCase() === "recess") {
+          classCss = "break";
+        }
+        timetableHTML += `
           <div class="color-box-container">
             <div class="class">${Room}</div>
-            <div class="color-box2">${Class}</div>
-            <div class="time">${start} - ${end}</div>
-          </div>
-        `;
-      }
+            <div class="${classCss}">${Class}</div>
+            <div class="time">${Time}</div>
+          </div>`;
+      });
+      document.querySelector('#timetable-container .popup-content').innerHTML = timetableHTML;
     }
 
-    // Function to open popups
-    function openPopup(popupId) {
-      var popup = document.getElementById(popupId);
-      if (popup) {
-        popup.style.display = "block";
-      } else {
-        console.error("Popup with ID '" + popupId + "' not found.");
-      }
-    }
-
-    // Call the function to update timetable when the page loads
-    window.onload = async function() {
-      const timetableData = await fetchYAML("timetable.yaml");
-      generateTimetableHTML();
-      openPopup('timetable-container');
-      setInterval(generateTimetableHTML, 1000 * 60); // Update every minute
-    };
-
-    // Open popup on window load
-    window.onload = function() {
-      openPopup('timetable-container');
-    };
+    // Load timetable data from YAML file and generate HTML
+    fetch('https://itshazzard.github.io/SchoolMANIA/timetable.yaml')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(yamlData => {
+        const timetableData = jsyaml.load(yamlData);
+        generateTimetableHTML(timetableData);
+      })
+      .catch(error => console.error('Error fetching timetable data:', error));
   </script>
 </body>
 </html>
