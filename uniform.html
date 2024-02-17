@@ -63,7 +63,7 @@
         function getUniform() {
             const today = new Date();
             const week = getWeek(today);
-            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+            const dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][today.getDay()];
 
             if (uniformData[week] && uniformData[week][dayOfWeek]) {
                 return uniformData[week][dayOfWeek];
