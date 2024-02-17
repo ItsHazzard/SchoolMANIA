@@ -8,14 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="popup-container" id="timetable-popup">
-    <div class="popup-content">
-      <span class="swap" id="prev-day">&#10094;</span>
-      <span class="close-btn-popup" onclick="redirect('A.html')">&#10006;</span>
-      <span class="swap" id="next-day">&#10095;</span>
-      <div class="color-boxes" id="timetable-data">
-        <!-- Timetable data will be dynamically populated here -->
-      </div>
+  <div id="timetable">
+    <div class="btn-container">
+      <button class="btn" id="prev-day">&#10094; Previous Day</button>
+      <button class="btn" id="next-day">Next Day &#10095;</button>
+    </div>
+    <div class="color-boxes" id="timetable-data">
+      <!-- Timetable data will be dynamically populated here -->
     </div>
   </div>
 
@@ -53,10 +52,6 @@
           populateTimetable(data[currentDay]);
         })
         .catch(error => console.error('Error loading timetable data:', error));
-    }
-
-    function redirect(url) {
-      window.location.href = url;
     }
 
     function populateTimetable(timetableData) {
