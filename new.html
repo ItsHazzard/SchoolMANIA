@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        /* CSS Styles */
+        html, body {
+            height: 100%;
+        }
+
+        /* Background styles */
+        body {
+            background-image: url('https://itshazzard.github.io/SchoolMANIA/Photos/Background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: 'Oswald', Bold;
+            color: white;
+        }
+
+        /* Timetable container */
+        .panel {
+            text-align: center;
+        }
+
+        .panel h1 {
+            margin-bottom: 20px;
+        }
+
+        #timetable-info, #day-week-info {
+            margin-top: 10px;
+        }
+
+        /* Additional styles for the timetable */
+        .timetable-container {
+            margin-top: 20px;
+        }
+
+        .period-info {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 10px;
+        }
+
+        .period-info:last-child {
+            border-bottom: none;
+        }
+
+        .period-info p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        /* Additional color styles */
+        .red-bg {
+            background-color: red;
+        }
+
+        .green-bg {
+            background-color: green;
+        }
+
+        .blue-bg {
+            background-color: blue;
+        }
+
+        .yellow-bg {
+            background-color: orange;
+        }
+
+        .purple-bg {
+            background-color: purple;
+        }
+
+        .black-bg {
+            background-color: #333;
+        }
+
+        .lblue-bg {
+            background-color: lightblue;
+        }
+
+        .lime-bg {
+            background-color: lime;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h1>Today's Timetable:</h1>
+        <div id="timetable-info"></div>
+        <p class="day-week" id="day-week-info">Loading...</p>
+    </div>
+
+    <script>
+        // Timetable data
+        const timetableData = {
+            "Week A": {
+                "Monday": {
+                    "Period-0": {"Class": "Mentor Group", "Room": "VCR", "Time": "8:30 8:49"},
+                    "Period-1": {"Class": "English 1", "Room": "C8", "Time": "8:50 9:39"},
+                    "Period-2": {"Class": "Maths 1", "Room": "A7", "Time": "9:40 10:29"},
+                    "Recess": {"Time": "10:30 10:49"},
+                    "Period-3": {"Class": "Mandarin 1", "Room": "A7", "Time": "10:50 11:39"},
+                    "Period-4": {"Class": "PDHPE 2", "Room": "H5", "Time": "11:40 12:29"},
+                    "Lunch": {"Time": "12:30 1:19"},
+                    "Period-5": {"Class": "Interdisciplinary 2", "Room": "E2", "Time": "1:20 2:09"},
+                    "Period-6": {"Class": "Music 2", "Room": "M5", "Time": "2:10 2:55"}
+                },
+                "Tuesday": {
+                    "Period-0": {"Class": "Mentor Group", "Room": "VCR", "Time": "8:30 8:49"},
+                    "Period-1": {"Class": "Science 1", "Room": "C4", "Time": "8:50 9:39"},
+                    "Period-2": {"Class": "Technology 1", "Room": "T6", "Time": "9:40 10:29"},
+                    "Recess": {"Time": "10:30 10:49"},
+                    "Period-3": {"Class": "History 2", "Room": "D7", "Time": "10:50 11:39"},
+                    "Period-4": {"Class": "Mentor Group", "Room": "VCR", "Time": "11:40 12:29"},
+                    "Lunch": {"Time": "12:30 1:19"},
+                    "Period-5": {"Class": "English 1", "Room": "C8", "Time": "1:20 2:09"},
+                    "Period-6": {"Class": "Maths 1", "Room": "B2", "Time": "2:10 2:55"}
+                },
+                // Remaining days for Week A...
+            },
+            "Week B": {
+                // Timetable data for Week B...
+            }
+        };
+
+        // Function to determine the current week
+        function getWeek(date) {
+            const weekNumber = date.getDay() === 1 && date.getDate() === 19 && date.getMonth() === 1 ? "B" : "A"; // February 19th is Week B
+            return `Week ${weekNumber}`;
+        }
+
+        // Function to get the timetable for the current day
+        function getTimetable() {
+            const today = new Date();
+            const week = getWeek(today);
+            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+
+            if (timetableData[week] && timetableData[week][dayOfWeek]) {
+                return timetableData[week][dayOfWeek];
+            } else {
+                return { "message": "No timetable information available for today." };
+            }
+        }
+
+        // Function to update the timetable information on the webpage
+        function updateTimetableInfo() {
+            const timetable = getTimetable();
+            const timetableInfoContainer = document.getElementById("timetable-info");
+            timetableInfoContainer.innerHTML = "";
+
+            if ("message" in timetable) {
+                timetableInfoContainer.textContent = timetable.message;
+            } else {
+                Object.keys(timetable).forEach(period => {
+                    const periodData = timetable[period];
+                    const periodInfo = document.createElement("div");
+                    periodInfo.classList.add("period-info");
+                    periodInfo.innerHTML = `
+                        <p>${period}: ${periodData.Class} - ${periodData.Room} (${periodData.Time})</p>
+                    `;
+                    timetableInfoContainer.appendChild(periodInfo);
+                });
+            }
+
+            // Update day and week information
+            const week = getWeek(new Date());
+            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][new Date().getDay()];
+            document.getElementById("day-week-info").textContent = `${dayOfWeek}, ${week}`;
+       
+
+ }
+
+        // Call the function to update timetable information when the page loads
+        window.onload = function() {
+            updateTimetableInfo();
+            setInterval(updateTimetableInfo, 1000 * 60); // Update every minute
+        };
+    </script>
+</body>
+</html>
