@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniform Panel</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .panel {
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel" id="uniform-panel">
+        <h1>Today's Uniform:</h1>
+        <p id="uniform-info">Loading...</p>
+    </div>
+
+    <script>
+        // Uniform data
+        const uniformData = {
+            "Week A": {
+                "Monday": {"uniform": "Casual", "action": "Wear"},
+                "Tuesday": {"uniform": "Formal", "action": "Wear"},
+                "Wednesday": {"uniform": "Sports", "action": "Wear"},
+                "Thursday": {"uniform": "Casual", "action": "Wear"},
+                "Friday": {"uniform": "Uniform", "action": "Wear"}
+            },
+            "Week B": {
+                "Monday": {"uniform": "Formal", "action": "Wear"},
+                "Tuesday": {"uniform": "Casual", "action": "Wear"},
+                "Wednesday": {"uniform": "Uniform", "action": "Wear"},
+                "Thursday": {"uniform": "Sports", "action": "Wear"},
+                "Friday": {"uniform": "Casual", "action": "Wear"}
+            }
+        };
+
+        // Function to determine the current week
+        function getWeek(date) {
+            const weekNumber = date.getDay() >= 1 && date.getDay() <= 5 ? "A" : "B";
+            return `Week ${weekNumber}`;
+        }
+
+        // Function to get the uniform for the current day
+        function getUniform() {
+            const today = new Date();
+            const week = getWeek(today);
+            const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
+
+            if (uniformData[week] && uniformData[week][dayOfWeek]) {
+                return uniformData[week][dayOfWeek];
+            } else {
+                return { "uniform": "No uniform information available for today.", "action": "N/A" };
+            }
+        }
+
+        // Function to update the uniform information on the webpage
+        function updateUniformInfo() {
+            const { uniform, action } = getUniform();
+            document.getElementById("uniform-info").textContent = `${uniform} - ${action}`;
+        }
+
+        // Call the function to update uniform information when the page loads
+        window.onload = updateUniformInfo;
+    </script>
+</body>
+</html>
