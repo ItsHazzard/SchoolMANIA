@@ -6,365 +6,76 @@
   <link rel="icon" href="https://itshazzard.github.io/SchoolMANIA/Photos/Favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-  <style>
-    /* Add your CSS styles here */
-    html, body {
-      height: 100%;
-    }
-
-    /* Background styles */
-    body {
-      background-image: url('https://itshazzard.github.io/SchoolMANIA/Photos/Background.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-      margin: 0;
-      font-family: 'Oswald', Bold;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-
-    /* Font styles */
-    body {
-      font-family: 'Oswald', Bold;
-      color: white;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background-color: #333;
-      border-radius: 10px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: #555;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: rgb(1, 1, 1);
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb:active {
-      background-color: #666;
-    }
-
-    .text-container {
-
-    }
-
-    .text {
-      font-size: 150px;
-      font-weight: bold;
-      position: absolute;
-      text-align: center;
-      bottom: 70vh;
-    }
-
-    .sub-text {
-      font-size: 24px;
-      color: black;
-      font-weight: bold;
-      position: absolute;
-      text-align: center;
-      bottom: 78vh;
-    }
-
-    .btns {
-      margin-top: 22vh;
-    }
-    /* Button styles */
-    .btn-container {
-        padding: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px;
-      font-size: 36px;
-      background-color: transparent;
-      color: White;
-      cursor: pointer;
-      margin: 10px;
-      transition: all 0.3s ease;
-      border: 5px solid;
-      border-image: linear-gradient(to bottom, black, grey) 1;
-      border-image-slice: 1;
-      position: relative;
-      overflow: hidden;
-      width: 360px;
-      height: 360px;
-      text-align: center;
-    }
-
-    .btn img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 60%;
-      max-height: 60%;
-    }
-
-    .btn-text {
-      display: block;
-      text-align: center;
-      margin-top: 90%;
-      transform: translateY(-50%);
-      color: black;
-      font-weight: bolder;
-      font-size: 50px;
-    }
-
-    .btn:hover {
-      color: grey;
-      border-image: linear-gradient(lightblue, cyan) 1;
-      transform: scale(1.3);
-    }
-
-    /* Color box styles */
-    .color-boxes {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-      cursor: default;
-    }
-    .color-box-container {
-        position: relative;
-        margin-right: 20%;
-        width: 450px;
-        height: 100px;
-        margin-bottom: 2%;
-        cursor: default;
-    }
-
-    .color-box-row {
-        position: relative;
-        margin-right: 20%;
-        width: 450px;
-        height: 100px;
-        margin-bottom: 2%;
-    }
-
-    .color-box {
-      width: 515px;
-      height: 100px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      border-color: #333;
-      font-size: 32px;
-      font-weight: bolder;
-      border: 2px solid;
-      color: white;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-    }
-
-    .color-box2 {
-      width: 290px;
-      height: 100px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      border-color: #333;
-      font-size: 32px;
-      font-weight: bolder;
-      border: 2px solid;
-      color: white;
-      margin-left: 29%;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      cursor: default;
-    }
-
-    .link {
-      width: 360px;
-      height: 100px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      border-color: #333;
-      font-size: 32px;
-      font-weight: bolder;
-      border: 2px solid;
-      color: white;
-      margin-left: 29%;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      position: absolute;
-    }
-
-    .break {
-      width: 405px;
-      height: 100px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      border-color: #333;
-      font-size: 32px;
-      font-weight: bolder;
-      border: 2px solid;
-      color: white;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      margin-left: 4%;
-      cursor: default;
-    }
-
-    .class {
-      width: 100px;
-      height: 100px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      border-color: #333;
-      font-size: 32px;
-      font-weight: bolder;
-      border: 2px solid;
-      color: white;
-      position: absolute;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-      left: 4%;
-      cursor: default;
-    }
-
-    .time {
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-      position: absolute;
-      margin-left: 96%;
-      top: 0;
-      width: 100px;
-      height: 100px;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      border-color: #333;
-      font-size: 32px;
-      font-weight: bolder;
-      border: 2px solid;
-      color: white;
-      text-align: center;
-      cursor: default;
-    }
-
-    .red {
-      background-color: red;
-    }
-
-    .green {
-      background-color: green;
-    }
-
-    .blue {
-      background-color: blue;
-    }
-
-    .yellow {
-      background-color: orange;
-    }
-
-    .purple {
-      background-color: purple;
-    }
-
-    .black {
-      background-color: #333;
-    }
-
-    .lblue {
-      background-color: lightblue;
-    }
-
-    .lime {
-      background-color: lime;
-    }
-
-    /* Notes textbox styles */
-    .notes-textbox {
-      width: 100%;
-      height: 200px;
-      margin-top: 20px;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .title {
-      margin-left: 40%;
-    }
-
-  </style>
 </head>
 <body>
-  <div class="color-boxes" id="timetable-content">
-    <!-- Content will be dynamically added here -->
+  <div id="timetable-container" class="popup-container">
+    <!-- Timetable content will be dynamically generated here -->
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script>
-    window.onload = function() {
-      fetchTimetableData();
-    };
+    // Function to fetch YAML data
+    async function fetchYAML(url) {
+      const response = await fetch(url);
+      const text = await response.text();
+      return jsyaml.load(text);
+    }
+
     // Function to determine the current week
     function getWeek(date) {
       const weekNumber = date.getDay() >= 1 && date.getDay() <= 5 ? "B" : "A";
       return `Week ${weekNumber}`;
     }
 
-    // Function to fetch timetable data from YAML file
-    function fetchTimetableData() {
+    // Function to get the timetable for the current day
+    function getTimetable() {
       const today = new Date();
       const week = getWeek(today);
       const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][today.getDay()];
-
-      fetch(`${dayOfWeek}-${week}.yaml`)
-        .then(response => response.text())
-        .then(yamlText => {
-          const timetableData = jsyaml.load(yamlText);
-          const timetableContent = document.getElementById('timetable-content');
-          timetableContent.innerHTML = ''; // Clear previous content
-
-          if (timetableData) {
-            timetableData.forEach((classInfo) => {
-              const { room, subject, time, color } = classInfo;
-              const classHTML = `
-                <div class="color-box-container">
-                  <div class="class ${color}">${room}</div>
-                  <div class="color-box2 ${color}">${subject}</div>
-                  <div class="time ${color}">${time}</div>
-                </div>
-              `;
-              timetableContent.innerHTML += classHTML;
-            });
-          } else {
-            timetableContent.innerHTML = "No timetable data available for today.";
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching timetable data:', error);
-        });
+      return timetableData[week][dayOfWeek];
     }
+
+    // Function to generate HTML for timetable
+    function generateTimetableHTML() {
+      const timetable = getTimetable();
+      const container = document.getElementById("timetable-container");
+      container.innerHTML = ""; // Clear previous content
+      
+      for (const period in timetable) {
+        const { Class, Room, Time } = timetable[period];
+        const [start, end] = Time.split(" ");
+        container.innerHTML += `
+          <div class="color-box-container">
+            <div class="class">${Room}</div>
+            <div class="color-box2">${Class}</div>
+            <div class="time">${start} - ${end}</div>
+          </div>
+        `;
+      }
+    }
+
+    // Function to open popups
+    function openPopup(popupId) {
+      var popup = document.getElementById(popupId);
+      if (popup) {
+        popup.style.display = "block";
+      } else {
+        console.error("Popup with ID '" + popupId + "' not found.");
+      }
+    }
+
+    // Call the function to update timetable when the page loads
+    window.onload = async function() {
+      const timetableData = await fetchYAML("timetable.yaml");
+      generateTimetableHTML();
+      openPopup('timetable-container');
+      setInterval(generateTimetableHTML, 1000 * 60); // Update every minute
+    };
+
+    // Open popup on window load
+    window.onload = function() {
+      openPopup('timetable-container');
+    };
   </script>
 </body>
 </html>
