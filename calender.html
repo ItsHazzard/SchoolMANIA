@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e; /* Midnight Blue */
+            color: #fff; /* White text */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #16213e; /* Dark Blue */
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #253746; /* Darker Blue */
+            text-align: left;
+        }
+
+        th {
+            background-color: #0f4c75; /* Dark Cyan */
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #253746; /* Darker Blue */
+        }
+
+        tr:hover {
+            background-color: #1a1a2e; /* Midnight Blue */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body>
+    <h1>Event Timetable</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody id="event-table-body">
+            <!-- Event data will be populated here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Fetch YAML data
+        fetch('events.yaml')
+            .then(response => response.text())
+            .then(yamlText => {
+                // Parse YAML
+                const data = jsyaml.load(yamlText);
+                const events = data.events;
+
+                // Populate table with event data
+                const tableBody = document.getElementById('event-table-body');
+                events.forEach(event => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${event.date}</td>
+                        <td>${event.title}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching or parsing YAML file:', error);
+            });
+    </script>
+</body>
+</html>
