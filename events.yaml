@@ -1,0 +1,7 @@
+events:
+  - title: Event 1
+    date: "1st of February"
+  - title: Event 2
+    date: "15th of March"
+  - title: Event 3
+    date: "10th of April"
